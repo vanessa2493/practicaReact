@@ -1,5 +1,4 @@
-import { data } from "../users";
-
+import { data } from "../../types";
 
 
 const postCategory = async (data: data) => {

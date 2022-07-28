@@ -1,9 +1,4 @@
-export type data ={
-    idDB: string,
-    name: string,
-    slug: string,
-}
-
+import { data } from "../../types";
 
 const postUser = async (data: data) => {
     await fetch('https://todolist-f94ed-default-rtdb.firebaseio.com/usuarios.json', {
