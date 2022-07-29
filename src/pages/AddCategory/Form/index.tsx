@@ -1,26 +1,28 @@
 import { log } from 'console'
-import { FC, FormEvent } from 'react'
+import { FC, FormEvent, useState } from 'react'
 import { postCategory } from '../../../api'
 import { Button } from '../../../components'
 import { string_to_slug } from '../../../helpers'
 
 
 const Form:FC = () =>{
+    const [data, setData] = useState<string>('')
+
     const handleSubmit = (e:FormEvent) => {
        
         e.preventDefault()
-        const data= {
-            name:(e.target as HTMLInputElement).value,
-            slug:string_to_slug((e.target as HTMLInputElement).value)
-            // agregar estado al value del input
-        }
-        console.log((e.target as HTMLInputElement).value)
-        // postCategory(data)
+        
+        const slug = string_to_slug(data)
+        postCategory({name:data, slug})
     }
 
     return(
         <form action="" onSubmit={handleSubmit}>
-            <input type="text" />
+            <input 
+                type="text" 
+                value={data} 
+                onChange={e => setData(e.target.value)} 
+            />
             <Button className='btn btn-primary' text='Agregar' />
         </form>
     )
