@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import  { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AddCategory } from './pages';
+import  { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
+import { Categories } from './pages';
 
 
 const root = ReactDOM.createRoot(
@@ -12,10 +12,12 @@ root.render(
   
   <BrowserRouter>
     <Routes>
-
+    
     <Route path='/' element={<App />}/>
-    <Route path='/add-category' element={<AddCategory />}/>
 
+    <Route path='categories' element={<Outlet />}>
+    <Route index element={<Categories />}/>
+    </Route>
     </Routes>
   </BrowserRouter>
 );

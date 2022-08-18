@@ -10,7 +10,7 @@ const Table = () => {
                     return(
                         <div>
                             <span>{name}</span>
-                            <a href="">Eliminar</a>
+                            <a href="#">Eliminar</a>
                             <a href={`./edit-category:${slug}`}>Editar</a>
                         </div>
                     )
@@ -20,3 +20,5 @@ const Table = () => {
         
     }
 }
+
+export { Table }

@@ -1,7 +1,7 @@
-import { Nav, Card } from '../../components'
-import { Form } from './Form'
+import { Nav, Card } from '../../../components'
+import { Form } from '../Form'
 
-const AddCategory = () => {
+const Add = () => {
     return(
         <div className="page add-category">
             <Nav/>
@@ -16,4 +16,4 @@ const AddCategory = () => {
     )
 }
 
-export { AddCategory}
+export { Add }
