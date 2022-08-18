@@ -1,11 +1,12 @@
 import { FC } from "react"
-import { AddCategories } from '../Categories'
+import { AddCategory } from './Add'
 
 
 
 const Categories:FC = () => {
     return(
-        <AddCategories /> 
+        // acá va el layout y como children el ADD
+        <AddCategory /> 
     )
 }
 

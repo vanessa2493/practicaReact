@@ -1,5 +1,6 @@
 import { Nav, Card } from '../../../components'
-import { Form } from '../Form'
+import { AddCategoryForm } from '../Form' 
+import { CategoriesTable } from '../Table'
 
 const Add = () => {
     return(
@@ -8,7 +9,8 @@ const Add = () => {
             <Card id='categories-card' title='Categorías'>
                 {/* form and span for each category with buttons edit and delete */}
 
-                <Form/>
+                <AddCategoryForm/>
+                <CategoriesTable/>
             </Card>
             
 
@@ -16,4 +18,4 @@ const Add = () => {
     )
 }
 
-export { Add }
+export { Add as AddCategory}
