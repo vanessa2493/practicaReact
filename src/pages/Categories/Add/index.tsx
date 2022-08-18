@@ -16,4 +16,4 @@ const Add = () => {
     )
 }
 
-export { Add }
+export { Add as AddCategory }
