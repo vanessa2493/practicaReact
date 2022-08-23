@@ -1,3 +1,4 @@
+import { mapToArray } from "../../helpers";
 import { Data } from "../../types";
 
 
@@ -13,11 +14,11 @@ const post = async (data: Data) => {
 const getAll = async () => {
 const get = await fetch('https://todolist-f94ed-default-rtdb.firebaseio.com/categorias.json');
 const data = await get.json();
-return data
+return mapToArray(data)
 }
 
 const get = async (category: string) => {
-    const get = await fetch(`https://todolist-f94ed-default-rtdb.firebaseio.com/usuarios/${category}.json`);
+    const get = await fetch(`https://todolist-f94ed-default-rtdb.firebaseio.com/categorias/${category}.json`);
     const data= await get.json();
     return data
 }

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { categoriesApi } from "../../../api/categories"
-import { mapToArray } from "../../../helpers"
 import { Data } from "../../../types"
 
 const Table = () => {
@@ -8,7 +7,7 @@ const Table = () => {
     const [ categories, setCategories ] = useState<Data[]>([])
     
     useEffect(() =>{
-        categoriesApi.getAll().then(data => setCategories(mapToArray(data)))
+        categoriesApi.getAll().then(data => setCategories(data))
     })
 
         return(
@@ -17,7 +16,7 @@ const Table = () => {
                     
                 {
             
-                    categories.map(({name, slug, idDB}) => {
+                    categories.map(({name, idDB}) => {
                         return(
                             <tr>
                                 <td>
@@ -27,7 +26,7 @@ const Table = () => {
                                     <a href="#">Eliminar</a>
                                 </td>
                                 <td>
-                                    <a href={`./edit-category:${slug}`} id={idDB}>Editar</a>
+                                    <a href={`./edit-category:${idDB}`} id={idDB}>Editar</a>
                                 </td>
                                 
                             </tr>
