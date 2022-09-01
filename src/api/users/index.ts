@@ -1,11 +1,6 @@
-export type data ={
-    idDB: string,
-    name: string,
-    slug: string,
-}
+import { Data } from "../../types";
 
-
-const postUser = async (data: data) => {
+const postUser = async (data: Data) => {
     await fetch('https://todolist-f94ed-default-rtdb.firebaseio.com/usuarios.json', {
         method: 'POST',
         headers: { "Content-Type": "application/json", }, 
@@ -33,7 +28,7 @@ await fetch(`https://todolist-f94ed-default-rtdb.firebaseio.com/usuarios/${user}
     })
 }
 
-const patchUser = async (user: string, data: data)=> {
+const patchUser = async (user: string, data: Data)=> {
 await fetch(`https://todolist-f94ed-default-rtdb.firebaseio.com/usuarios/${user}.json`, {
         method: 'PATCH',
         headers: { "Content-Type": "application/json", }, 
