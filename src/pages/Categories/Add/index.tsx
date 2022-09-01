@@ -1,21 +1,18 @@
-import { Nav, Card } from '../../../components'
-import { AddCategoryForm } from '../Form' 
-import { CategoriesTable } from '../Table'
+import { Card, Layout } from "../../../components";
+import { AddCategoryForm } from "../Form";
+import { CategoriesTable } from "../Table";
 
 const Add = () => {
-    return(
-        <div className="page add-category">
-            <Nav/>
-            <Card id='categories-card' title='Categorías'>
-                {/* form and span for each category with buttons edit and delete */}
+  return (
+    <Layout page="categories">
+      <Card id="categories-card" title="Categorías">
+        {/* form and span for each category with buttons edit and delete */}
 
-                <AddCategoryForm/>
-                <CategoriesTable/>
-            </Card>
-            
+        <AddCategoryForm />
+        <CategoriesTable />
+      </Card>
+    </Layout>
+  );
+};
 
-        </div>
-    )
-}
-
-export { Add as AddCategory}
+export { Add as AddCategory };
