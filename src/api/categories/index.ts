@@ -1,8 +1,8 @@
-import { data } from "../users";
+import { mapToArray } from "../../helpers";
+import { Data } from "../../types";
 
 
-
-const postCategory = async (data: data) => {
+const post = async (data: Data) => {
     await fetch('https://todolist-f94ed-default-rtdb.firebaseio.com/categorias.json', {
         method: 'POST',
         headers: { "Content-Type": "application/json", }, 
@@ -11,26 +11,26 @@ const postCategory = async (data: data) => {
 
 }
 
-const getCategories = async () => {
+const getAll = async () => {
 const get = await fetch('https://todolist-f94ed-default-rtdb.firebaseio.com/categorias.json');
 const data = await get.json();
-return data
+return mapToArray(data)
 }
 
-const getCategory = async (category: string) => {
-    const get = await fetch(`https://todolist-f94ed-default-rtdb.firebaseio.com/usuarios/${category}.json`);
-    const data = await get.json();
+const get = async (category: string) => {
+    const get = await fetch(`https://todolist-f94ed-default-rtdb.firebaseio.com/categorias/${category}.json`);
+    const data= await get.json();
     return data
 }
 
-const deleteCategory = async (category: string)=> {
+const del = async (category: string)=> {
 await fetch(`https://todolist-f94ed-default-rtdb.firebaseio.com/categorias/${category}.json`, {
         method: 'DELETE',
         headers: { "Content-Type": "application/json", }, 
     })
 }
 
-const patchCategory = async (category: string, data: data)=> {
+const patch = async (category: string, data: Data)=> {
 await fetch(`https://todolist-f94ed-default-rtdb.firebaseio.com/categorias/${category}.json`, {
         method: 'PATCH',
         headers: { "Content-Type": "application/json", }, 
@@ -38,4 +38,4 @@ await fetch(`https://todolist-f94ed-default-rtdb.firebaseio.com/categorias/${cat
     })
 }
 
-export { postCategory, getCategories, getCategory, deleteCategory, patchCategory }
+export const categoriesApi = { post, getAll, get, del, patch }
