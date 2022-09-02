@@ -1,6 +1,6 @@
-import { objectSimple } from "../types";
+import { ObjectSimple } from "../types";
 
-const mapToArray = (object: objectSimple[]) => {
+const mapToArray = (object: ObjectSimple[]) => {
     const array = [];
   
   

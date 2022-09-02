@@ -1,6 +1,5 @@
-import { log } from 'console'
 import { FC, FormEvent, useState } from 'react'
-import { postCategory } from '../../../api'
+import { categoriesApi } from '../../../api/categories'
 import { Button } from '../../../components'
 import { string_to_slug } from '../../../helpers'
 
@@ -13,7 +12,7 @@ const Form:FC = () =>{
         e.preventDefault()
         
         const slug = string_to_slug(data)
-        postCategory({name:data, slug})
+        categoriesApi.post({name:data, slug})
     }
 
     return(
@@ -28,4 +27,4 @@ const Form:FC = () =>{
     )
 }
 
-export { Form }
+export { Form as AddCategoryForm }
