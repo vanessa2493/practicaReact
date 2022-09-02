@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { Categories } from "./pages";
+import { Categories, LogIn } from "./pages";
 import { SignUp } from "./pages/SignUp";
 
 const root = ReactDOM.createRoot(
@@ -13,6 +13,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="signup" element={<SignUp />} />
+      <Route path="login" element={<LogIn />} />
       <Route path="categories" element={<Outlet />}>
         <Route index element={<Categories />} />
       </Route>

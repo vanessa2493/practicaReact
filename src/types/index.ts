@@ -17,4 +17,9 @@ export type User = {
   sessionToken?: string;
 };
 
+export type LoginPayLoad = {
+  email: string;
+  pass: string;
+};
+
 export type UserPayload = Omit<User, "idDB" | "sessionToken">;
