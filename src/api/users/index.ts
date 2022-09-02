@@ -1,4 +1,5 @@
-import { Data, UserPayload } from "../../types";
+import { mapToArray } from "../../helpers";
+import { Data, User, UserPayload } from "../../types";
 
 const post = async (data: UserPayload) => {
   await fetch(
@@ -11,12 +12,12 @@ const post = async (data: UserPayload) => {
   );
 };
 
-const getAll = async () => {
+const getAll = async (): Promise<User[]> => {
   const get = await fetch(
     "https://todolist-f94ed-default-rtdb.firebaseio.com/usuarios.json"
   );
   const data = await get.json();
-  return data;
+  return mapToArray(data);
 };
 
 const get = async (user: string) => {
@@ -37,15 +38,18 @@ const del = async (user: string) => {
   );
 };
 
-const patch = async (user: string, data: Data) => {
-  await fetch(
-    `https://todolist-f94ed-default-rtdb.firebaseio.com/usuarios/${user}.json`,
+const patch = async (id: string, payload: Partial<User>) => {
+  const resp = await fetch(
+    `https://todolist-f94ed-default-rtdb.firebaseio.com/usuarios/${id}.json`,
     {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(payload),
     }
   );
+  const data = await resp.json();
+
+  return data;
 };
 
 export const usersApi = { post, get, getAll, del, patch };

@@ -1,14 +1,14 @@
-import { FC } from "react"
-import { Link } from "react-router-dom"
+import { FC } from "react";
+import { Link } from "react-router-dom";
 
-const MainNav:FC = () => {
-    return(
-        <nav>
-            <Link to={'/extras/save'}> Agregar Extra </Link>
-            <Link to={'/projects'}> Mis Proyectos </Link>
-            <Link to={'/projects/save'}> Crear Proyecto </Link>
-        </nav>
-    )
-}
+const MainNav: FC = () => {
+  return (
+    <nav>
+      <Link to={"/categories"}> Agregar Categorías </Link>
+      <Link to={"/tasks"}> Agregar Tareas </Link>
+      <Link to={"/users"}> Usuarios </Link>
+    </nav>
+  );
+};
 
-export { MainNav }
+export { MainNav };
