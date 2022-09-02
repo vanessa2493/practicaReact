@@ -6,3 +6,6 @@ const Categories: FC = () => {
 };
 
 export { Categories };
+
+
+
